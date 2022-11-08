@@ -4,6 +4,7 @@ type FIRESTORE_DOCUMENTS_TYPE = any[];
 
 function useBatch(firestoreDocuments: FIRESTORE_DOCUMENTS_TYPE): any[] {
   var BATCH_DATA: FIRESTORE_DOCUMENTS_TYPE = [];
+
   const ARRAY_LENGTH: number = firestoreDocuments.length;
   const BATCH_TIMES: number = Math.floor(ARRAY_LENGTH / BATCH_LIMIT);
   const BATCH_LAST: number = ARRAY_LENGTH - BATCH_TIMES * BATCH_LIMIT;
