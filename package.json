@@ -1,0 +1,30 @@
+{
+  "name": "firebase-batch-hook",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "version": "1.0.0",
+  "scripts": {
+    "build": "npx tsc --build",
+    "clean": "npx tsc --build --clean",
+    "tsc": "tsc -p tsconfig.json",
+    "dev": "yarn build && node -e require('./src/test.js')"
+  },
+  "author": "Hubert Ryan (hubertryanofficial@gmail.com)",
+  "license": "MIT",
+  "private": false,
+  "keywords": [
+    "firebase",
+    "batch",
+    "query",
+    "database",
+    "functions",
+    "firestore"
+  ],
+  "description": "A hook to make a batch transaction with many firestore documents using firebase and firebase functions.",
+  "dependencies": {
+    "@types/node": "^18.11.9",
+    "prettier": "^2.7.1",
+    "ts-node": "^10.9.1",
+    "typescript": "^4.8.4"
+  }
+}
