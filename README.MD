@@ -90,4 +90,36 @@ export function $updatePostsListener() {
 
 ## Rules
 
-Inside firebase we have many security tips in case you have several disallowed readings and unexpected places. If you want to know more here is the batch with firestore rules and limits from the official documentation: https://firebase.google.com/docs/firestore/manage-data/transactions#security_rules_limits
+Inside firebase we have many security tips in case you have several disallowed readings and unexpected places. In security rules for transactions or batched writes, there is a limit of 20 document access calls for the entire atomic operation in addition to the normal 10 call limit for each single document operation in the batch.. If you want to know more here is the batch with firestore rules and limits from the official documentation: https://firebase.google.com/docs/firestore/manage-data/transactions#security_rules_limits
+
+```js
+service cloud.firestore {
+  match /databases/{db}/documents {
+    function prefix() {
+      return /databases/{db}/documents;
+    }
+    match /chatroom/{roomId} {
+      allow read, write: if request.auth != null && roomId in get(/$(prefix())/users/$(request.auth.uid)).data.chats
+                            || exists(/$(prefix())/admins/$(request.auth.uid));
+    }
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId
+                            || exists(/$(prefix())/admins/$(request.auth.uid));
+    }
+    match /admins/{userId} {
+      allow read, write: if request.auth != null && exists(/$(prefix())/admins/$(request.auth.uid));
+    }
+  }
+}
+
+```
+
+## Contributors
+
+## You got it! 👍😁
+
+Thank you very much, I hope I have helped the great React community. ❤🙌
+
+<p align="center">
+  <img src="https://imgur.com/nIAoYGc.png" width="300" title="Whatsapp">
+</p>
