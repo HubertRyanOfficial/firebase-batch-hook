@@ -114,10 +114,9 @@ service cloud.firestore {
 
 ```
 
-## Contributors
-
 ## You got it! 👍😁
 
+This repository is worth thanking <a href="https://github.com/Arkadina">@Arkadina</a> for helping to code this library in its first versions.
 Thank you very much, I hope I have helped the great React community. ❤🙌
 
 <p align="center">
