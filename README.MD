@@ -14,7 +14,7 @@ A hook to make a batch **transaction with many firestore documents using firebas
 
 One of the first things to know what a **hook** is for in our javascript ecosystem. This concept comes from the react js developers stack, but it works for everything in the javascript world. In short, they are small pieces of code that can be used as a hook inside the front-end components and be reused several times. If you want to know a little more, take a look at the official documentation on: https://reactjs.org/docs/hooks-intro.html
 
-```sh
+```bash
 $ yarn add firebase-batch-hook
 
 or
